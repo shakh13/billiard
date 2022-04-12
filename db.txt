@@ -1,0 +1,36 @@
+[users]
+	id
+	username
+	password
+	role
+	created_at
+	
+[machines]
+	id
+	caption
+	status
+	port
+	created_at
+	
+[timer]
+	id
+	machine_id
+	user_id
+	is_vip
+	until_time
+	created_at
+
+[products]
+	id
+	caption
+	image_path
+	price
+	quantity
+	created_at
+	
+[shop]
+	id
+	user_id
+	machine_id
+	quantity
+	created_at

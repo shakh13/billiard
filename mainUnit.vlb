@@ -1,0 +1,16 @@
+﻿[ComPort]
+Coordinates=152,1,65,36
+
+[connection]
+Coordinates=24,77,77,36
+
+[query]
+Coordinates=10,10,47,58
+Visible=True
+
+[]
+Coordinates=255,1,91,36
+
+[keyThread]
+Coordinates=152,56,51,36
+

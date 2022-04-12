@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.115,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.567,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\loginUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.567,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\loginUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.858,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\mainUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.996,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.476,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.338,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\usersUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.995,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\shopSettingsUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.338,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\usersUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.831,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.732,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\messageUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.133,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\machinesUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.518,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\productsUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\shopSettingsUnit.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.079,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\messageUnit.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.858,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\mainUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.877,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\shoppingUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.169,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\priceUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.969,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.585,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\cashUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.518,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\productsUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\shopSettingsUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.133,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\machinesUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.585,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\cashUnit.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.223,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.271,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Project1.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Billiard.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.484,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Project1.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.995,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\shopSettingsUnit.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.089,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.169,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\priceUnit.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.831,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.365,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.400,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.217,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.442,=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.732,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\messageUnit.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.877,C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\comport\shoppingUnit.pas</Transaction>
+    <Transaction>2022.04.12 05:56:04.932,C:\Users\User\Documents\Embarcadero\Studio\Projects\billiard\priceUnit.pas=</Transaction>
+  </Transactions>
+</BorlandProject>
