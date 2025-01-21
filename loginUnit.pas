@@ -1,4 +1,4 @@
-unit loginUnit;
+п»їunit loginUnit;
 
 interface
 
@@ -55,10 +55,10 @@ begin
             begin
               cashMainMenu.Visible := true;
               settingsMainMenu.Visible := true;
-              role := 'Админ';
+              role := 'РђРґРјРёРЅ';
             end
           else
-            role := 'Работник';
+            role := 'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ';
 
           mainForm.Caption := 'Billiard (' + role + ': ' + username + ')';
 
@@ -68,7 +68,7 @@ begin
           mainForm.timer.Enabled := true;
         end
       else
-        ShowMessage('Направильный логин или пароль.');
+        ShowMessage('Р›РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ РЅРµРїСЂР°РІРёР»СЊРЅРѕ.');
     end;
 end;
 
@@ -98,7 +98,7 @@ begin
     end
   else
     begin
-      showMessage('Пользователь не найдено!' + #13 + 'Свяжитесь с администратором.' + #13 + 'Шахзод 906006960');
+      showMessage('РћР±СЂР°С‚РёС‚Рµ Рє СЃРѕР·РґР°С‚РµР»СЋ!' + #13 + 'РЁР°С…Р·РѕРґ РЎР°РёРґРјСѓСЂРѕРґРѕРІ.' + #13 + '+998 90 906006960');
       loggedIn := true;
       canTerminate := true;
     end;
@@ -131,7 +131,7 @@ begin
     end
   else
     begin
-      showMessage('Ошибка при настройки программы' + #13 + 'Свяжитесь с администратором.' + #13 + 'Шахзод 906006960');
+      showMessage('РћР±СЂР°С‚РёС‚Рµ Рє СЃРѕР·РґР°С‚РµР»СЋ!' + #13 + 'РЁР°С…Р·РѕРґ РЎР°РёРґРјСѓСЂРѕРґРѕРІ.' + #13 + '+998 90 906006960');
       loggedIn := true;
       canTerminate := true;
     end;
@@ -139,7 +139,7 @@ end;
 
 procedure TloginForm.Label2Click(Sender: TObject);
 begin
-  showMessage('Шахзод 906006960');
+  showMessage('РЁР°С…Р·РѕРґ 906006960');
 end;
 
 procedure TloginForm.Label2MouseEnter(Sender: TObject);
@@ -154,7 +154,7 @@ end;
 
 procedure TloginForm.LinkLabel1Click(Sender: TObject);
 begin
-  showMessage('Шахзод 906006960');
+  showMessage('РЁР°С…Р·РѕРґ 906006960');
 end;
 
 procedure TloginForm.passwordEditKeyPress(Sender: TObject; var Key: Char);

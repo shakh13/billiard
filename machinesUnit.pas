@@ -25,6 +25,7 @@ type
     DBEdit3: TDBEdit;
     SpeedButton1: TSpeedButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +50,11 @@ begin
   mainForm.sg.RowCount := 1;
 
   mainform.OnCreate(Sender);
+end;
+
+procedure TmachinesForm.FormShow(Sender: TObject);
+begin
+  fdtable1.Active := true;
 end;
 
 end.

@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask;
+  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.Buttons;
 
 type
   TusersForm = class(TForm)
@@ -21,6 +21,7 @@ type
     DBNavigator1: TDBNavigator;
     Label1: TLabel;
     Label2: TLabel;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,5 +36,10 @@ implementation
 {$R *.dfm}
 
 uses mainUnit;
+
+procedure TusersForm.FormShow(Sender: TObject);
+begin
+   fdtable1.Active := true;
+end;
 
 end.

@@ -10,7 +10,8 @@ uses
   cashUnit in 'cashUnit.pas' {cashForm},
   usersUnit in 'usersUnit.pas' {usersForm},
   productsUnit in 'productsUnit.pas' {productsForm},
-  shoppingUnit in 'shoppingUnit.pas' {shoppingForm};
+  shoppingUnit in 'shoppingUnit.pas' {shoppingForm},
+  printerUnit in 'printerUnit.pas';
 
 {$R *.res}
 
@@ -26,7 +27,7 @@ begin
   Application.CreateForm(TusersForm, usersForm);
   Application.CreateForm(TproductsForm, productsForm);
   Application.CreateForm(TshoppingForm, shoppingForm);
-  loginForm.Show;
+  LoginForm.Show;
 
   repeat
     Application.ProcessMessages;

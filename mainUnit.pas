@@ -1,4 +1,4 @@
-unit mainUnit;
+п»їunit mainUnit;
 
 interface
 
@@ -13,7 +13,7 @@ uses
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, Vcl.Menus, shellapi, FireDAC.Comp.UI,
   Vcl.Imaging.pngimage, Vcl.ComCtrls, System.ImageList, Vcl.ImgList, Vcl.ToolWin,
-  Vcl.Buttons, Vcl.WinXCtrls, Vcl.Grids, DateUtils, Math;
+  Vcl.Buttons, Vcl.WinXCtrls, Vcl.Grids, DateUtils, Math, Printers;
 
 type
   TmainForm = class(TForm)
@@ -25,7 +25,6 @@ type
     N1: TMenuItem;
     settingsMainMenu: TMenuItem;
     N3: TMenuItem;
-    N4: TMenuItem;
     N5: TMenuItem;
     N7: TMenuItem;
     N9: TMenuItem;
@@ -42,11 +41,12 @@ type
     N6: TMenuItem;
     timerQuery: TFDQuery;
     historyList: TListBox;
-    shopBtn: TSpeedButton;
     FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
     timer: TTimer;
     freeQuery: TFDQuery;
     ImageList1: TImageList;
+    N10: TMenuItem;
+    PrintDialog: TPrintDialog;
     procedure ComPortException(Sender: TObject; TComException: TComExceptions;
       ComportMessage: string; WinError: Int64; WinMessage: string);
     procedure keyThreadRun(Sender: TIdThreadComponent);
@@ -104,12 +104,12 @@ implementation
 {$R *.dfm}
 
 uses loginUnit, machinesUnit, cashUnit, usersUnit, productsUnit,
-  shoppingUnit;
+  shoppingUnit, printerUnit;
 
 
 procedure TmainForm.cashMainMenuClick(Sender: TObject);
 begin
-  if role = 'Админ' then
+  if role = 'РђРґРјРёРЅ' then
     cashForm.ShowModal;
 end;
 
@@ -164,17 +164,17 @@ begin
     connection.Connected := true;
     connection.Open;
   except
-    ShowMessage('Нет соединений с базы данных!' + #13 + 'Программа закрывается.');
+    ShowMessage('ГЌГҐГІ Г±Г®ГҐГ¤ГЁГ­ГҐГ­ГЁГ© Г± ГЎГ Г§Г» Г¤Г Г­Г­Г»Гµ!' + #13 + 'ГЏГ°Г®ГЈГ°Г Г¬Г¬Г  Г§Г ГЄГ°Г»ГўГ ГҐГІГ±Гї.');
     close();
   end;
 
-  sg.Cells[0, 0] := 'Стол';
-  sg.Cells[1, 0] := 'Начало';
-  sg.Cells[2, 0] := 'Прошло';
-  sg.Cells[3, 0] := 'Осталось';
-  sg.Cells[4, 0] := 'Цена за время';
-  sg.Cells[5, 0] := 'Покупки';
-  sg.Cells[6, 0] := 'Итого';
+  sg.Cells[0, 0] := 'РќР°Р·РІР°РЅРёРµ';
+  sg.Cells[1, 0] := 'РќР°С‡Р°Р»Рѕ';
+  sg.Cells[2, 0] := 'Р’СЂРµРјСЏ';
+  sg.Cells[3, 0] := 'РћСЃС‚Р°Р»РѕСЃСЊ';
+  sg.Cells[4, 0] := 'Р¦РµРЅР°';
+  sg.Cells[5, 0] := 'РџРѕРєСѓРїРєРё';
+  sg.Cells[6, 0] := 'РС‚РѕРіРѕ';
 
   query.Close;
   query.Open('select * from machines where status=1 order by caption');
@@ -221,7 +221,7 @@ end;
 
 procedure TmainForm.N2Click(Sender: TObject);
 begin
-  if role = 'Админ' then
+  if role = 'РђРґРјРёРЅ' then
     usersForm.ShowModal;
 end;
 
@@ -239,19 +239,19 @@ end;
 
 procedure TmainForm.N6Click(Sender: TObject);
 begin
-  showMessage('Программист Шахзод' + #13 + 'Тел: +998 90 6006960' + #13 + 'Email: vip.shaxi@gmail.com' + #13 + 'Instagram: @shakh_developer');
+  showMessage('РЁР°С…Р·РѕРґ РЎР°РёРґРјСѓСЂРѕРґРѕРІ' + #13 + 'РўРµР»: +998 90 6006960' + #13 + 'Instagram: @shakh_developer');
 end;
 
 procedure TmainForm.N7Click(Sender: TObject);
 begin
-  if role = 'Админ' then
+  if role = 'РђРґРјРёРЅ' then
     machinesForm.ShowModal;
 end;
 
 
 procedure TmainForm.N9Click(Sender: TObject);
 begin
-  if role = 'Админ' then
+  if role = 'РђРґРјРёРЅ' then
     begin
       productsForm.ShowModal;
     end;
@@ -333,13 +333,13 @@ begin
     if query.RecordCount > 0 then
       begin
         stopItem := TMenuItem.Create(PopupMenu);
-        stopItem.Caption := 'Стоп';
+        stopItem.Caption := 'РЎС‚РѕРї';
         stopItem.Tag := tag_stop;
         stopItem.OnClick := onPopupClick;
         PopupMenu.Items.Add(stopItem);
 
         moveMenuItem := TMenuItem.Create(popupMenu);
-        moveMenuItem.Caption := 'Переместить стол на';
+        moveMenuItem.Caption := 'РџРµСЂРµРјРµСЃС‚РёС‚СЊ РЅР°';
 
         isEmptyMachine := false;
         query.Close;
@@ -365,7 +365,7 @@ begin
           popupMenu.Items.Add(moveMenuItem);
 
         shopItem := TMenuItem.Create(PopupMenu);
-        shopItem.Caption := 'Магазин';
+        shopItem.Caption := 'РњР°РіР°Р·РёРЅ';
         shopItem.Tag := tag_shop;
         shopItem.OnClick := onPopupClick;
         PopupMenu.Items.Add(shopItem);
@@ -383,7 +383,7 @@ begin
         if query.RecordCount > 0 then
           begin
             activateTimeItem := TMenuItem.Create(popupMenu);
-            activateTimeItem.Caption := 'Активировать на';
+            activateTimeItem.Caption := 'РђРєС‚РёРІРёСЂРѕРІР°С‚СЊ РЅР°';
             PopupMenu.Items.Add(activateTimeItem);
 
             for I := 1 to query.RecordCount do
@@ -566,7 +566,14 @@ var
   timer_id: String;
   started, finished, sum: integer;
   msg: String;
+  buttonCaptions: array [0..2] of String;
+  itogo: real;
+  print: TPrint;
+  timePrice: real;
+  items: TStringList;
+  st, et: string;
   I: Integer;
+
 begin
   for row := 1 to sg.RowCount - 1 do
     begin
@@ -575,6 +582,8 @@ begin
       machine_port := machine_ports[row - 1];
       machine_hour_price := machine_prices[row - 1].ToInteger;
       current_timestamp := DateTimeToUnix(now);
+      st := sg.Cells[1, row];
+      et := sg.Cells[2, row];
       // check is finished time
       timerQuery.Close;
       timerQuery.Open('select * from timer where machine_id=' + machine_id + ' and until_time<=' + IntToStr(current_timestamp) + ' and until_time > 0 and status=1');
@@ -584,6 +593,8 @@ begin
           started := timerQuery.FieldByName('created_at').AsInteger;
           finished := timerQuery.FieldByName('until_time').AsInteger;
           sum := round(abs(finished - started) / 3600 * machine_hour_price);
+
+          timePrice := sum;
 
           // turn LED OFF
           turnLED(machine_port, led_off);
@@ -598,7 +609,9 @@ begin
           timerQuery.Close;
           timerQuery.ExecSQL('update settings set cash=' + cash.ToString);
 
-          msg := 'Закончено: ' + machine_caption  + #13#10 + 'Время: ' + inttostr(sum) + #13#10;
+          msg := machine_caption  + #13#10 + 'Р’СЂРµРјСЏ: ' + inttostr(sum) + #13#10;
+
+          items := TStringlist.Create;
 
           // add shopping list
           query.Close;
@@ -609,6 +622,11 @@ begin
             begin
               for I := 1 to query.RecordCount do
                 begin
+                  items.Add(query.FieldByName('caption').AsString
+                    + ': ' + query.FieldByName('quantity').AsString
+                    + 'x' + query.FieldByName('price').AsString
+                    + '     ' + query.FieldByName('ap').AsString);
+
                   msg := msg
                     + query.FieldByName('caption').AsString
                     + ': ' + query.FieldByName('quantity').AsString
@@ -621,7 +639,31 @@ begin
 
           historyList.Items.Insert(0, machine_caption + ': ' + sum.ToString + ' - ' + dateTimeToStr(UnixToDateTime(started)));
 
-          Application.MessageBox(pchar(msg + #13#10 + '-------------------' + #13#10 + 'Итого:     ' + IntToStr(sum) + ' сум'), 'Время', MB_OK);
+
+          buttonCaptions[0] := 'РџРµС‡Р°С‚СЊ';
+          buttonCaptions[1] := 'Р—Р°РєСЂС‹С‚СЊ';
+
+          case MessageDlg(
+            msg + #13#10 + '-------------------' + #13#10 + 'РС‚РѕРіРѕ:     ' + IntToStr(sum) + ' РЎРЈРњ',
+            TMsgDlgType.mtConfirmation,
+            [TMsgDlgBtn.mbAll, TMsgDlgBtn.mbClose],
+            0,
+            TMsgDlgBtn.mbAll,
+            buttonCaptions
+          ) of
+            12: begin // Print
+              print := TPrint.Create;
+              print.printCheck(sum, timePrice, st, et, items);
+            end;
+            8: begin  // Close
+
+            end;
+          end;
+
+          items.Free;
+
+
+          // Application.MessageBox(pchar(msg + #13#10 + '-------------------' + #13#10 + 'Г€ГІГ®ГЈГ®:     ' + IntToStr(sum) + ' Г±ГіГ¬'), 'Г‚Г°ГҐГ¬Гї', MB_OK);
 
 
         end;
