@@ -16,9 +16,8 @@ object productsForm: TproductsForm
   Padding.Top = 10
   Padding.Right = 10
   Padding.Bottom = 10
-  OldCreateOrder = False
   Position = poMainFormCenter
-  PixelsPerInch = 96
+  OnShow = FormShow
   TextHeight = 13
   object Label1: TLabel
     Left = 10
@@ -119,7 +118,6 @@ object productsForm: TproductsForm
     Top = 176
   end
   object FDTable1: TFDTable
-    Active = True
     IndexFieldNames = 'id'
     Connection = mainForm.connection
     UpdateOptions.UpdateTableName = 'products'

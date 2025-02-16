@@ -1,4 +1,4 @@
-unit productsUnit;
+﻿unit productsUnit;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask;
+  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.Buttons;
 
 type
   TproductsForm = class(TForm)
@@ -22,6 +22,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,5 +37,11 @@ implementation
 {$R *.dfm}
 
 uses mainUnit;
+
+procedure TproductsForm.FormShow(Sender: TObject);
+begin
+  //
+  FDTAble1.Active := true;
+end;
 
 end.

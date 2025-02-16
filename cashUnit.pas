@@ -1,4 +1,4 @@
-unit cashUnit;
+п»їunit cashUnit;
 
 interface
 
@@ -55,13 +55,13 @@ begin
   if mainForm.query.RecordCount > 0 then
     begin
       mainForm.cash := mainForm.query.FieldByName('cash').AsInteger;
-      cashLabel.Caption := 'На кассе: ' + mainForm.cash.ToString + ' сум';
+      cashLabel.Caption := 'ГЌГ  ГЄГ Г±Г±ГҐ: ' + mainForm.cash.ToString + ' Г±ГіГ¬';
       cashEdit.MaxValue := mainForm.cash;
       cashEdit.Value := mainForm.cash;
     end
   else
     begin
-      showMessage('Ошибка при выполнение комманды.' + #13 + 'Пожалуйста, обращаете к администратору.');
+      showMessage('РћР±СЂР°С‚РёС‚Рµ Рє СЃРѕР·РґР°С‚РµР»СЋ!' + #13 + 'РЁР°С…Р·РѕРґ РЎР°РёРґРјСѓСЂРѕРґРѕРІ.' + #13 + '+99890 906006960');
       close();
     end;
 end;

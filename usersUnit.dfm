@@ -16,9 +16,8 @@ object usersForm: TusersForm
   Padding.Top = 15
   Padding.Right = 15
   Padding.Bottom = 15
-  OldCreateOrder = False
   Position = poMainFormCenter
-  PixelsPerInch = 96
+  OnShow = FormShow
   TextHeight = 13
   object Label1: TLabel
     Left = 15
@@ -111,16 +110,15 @@ object usersForm: TusersForm
   end
   object DataSource1: TDataSource
     DataSet = FDTable1
-    Left = 448
-    Top = 224
+    Left = 232
+    Top = 176
   end
   object FDTable1: TFDTable
-    Active = True
     IndexFieldNames = 'id'
     Connection = mainForm.connection
     UpdateOptions.UpdateTableName = 'users'
     TableName = 'users'
-    Left = 456
+    Left = 176
     Top = 176
   end
 end

@@ -16,10 +16,8 @@ object cashForm: TcashForm
   Padding.Top = 15
   Padding.Right = 15
   Padding.Bottom = 15
-  OldCreateOrder = False
   Position = poMainFormCenter
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 13
   object cashLabel: TLabel
     Left = 15

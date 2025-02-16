@@ -18,7 +18,7 @@ object machinesForm: TmachinesForm
   Padding.Bottom = 10
   Position = poMainFormCenter
   OnClose = FormClose
-  PixelsPerInch = 96
+  OnShow = FormShow
   TextHeight = 13
   object Label1: TLabel
     Left = 10
@@ -136,7 +136,6 @@ object machinesForm: TmachinesForm
     TabOrder = 5
   end
   object FDTable1: TFDTable
-    Active = True
     IndexFieldNames = 'caption;port;price;status'
     DetailFields = 'caption;port;price;status'
     Connection = mainForm.connection

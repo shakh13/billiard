@@ -1,4 +1,4 @@
-unit shoppingUnit;
+п»їunit shoppingUnit;
 
 interface
 
@@ -87,19 +87,19 @@ begin
   sg.ColWidths[4] := 70;
   sg.ColWidths[5] := 110;
 
-  sg.Cells[0, 0] := '№';
-  sg.Cells[1, 0] := 'Название';
-  sg.Cells[2, 0] := 'Пользователь';
-  sg.Cells[3, 0] := 'Кол-во';
-  sg.Cells[4, 0] := 'Цена';
-  sg.Cells[5, 0] := 'Время';
+  sg.Cells[0, 0] := 'ID';
+  sg.Cells[1, 0] := 'РќР°С…РІР°РЅРёРµ';
+  sg.Cells[2, 0] := 'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ';
+  sg.Cells[3, 0] := 'РљРѕР»РёС‡РµСЃС‚РІРѕ';
+  sg.Cells[4, 0] := 'Р¦РµРЅР°';
+  sg.Cells[5, 0] := 'Р”РѕР±Р°РІР»РµРЅРѕ';
 end;
 
 procedure TshoppingForm.FormShow(Sender: TObject);
 var
   I: Integer;
 begin
-  caption := machine_caption + ' - Шоппинг';
+  caption := machine_caption + ' - РњР°РіР°Р·РёРЅ';
   mainForm.query.Close;
 
   shoppingPanel.Visible := is_shopping;

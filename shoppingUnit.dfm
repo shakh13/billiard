@@ -19,7 +19,6 @@ object shoppingForm: TshoppingForm
   Position = poMainFormCenter
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 13
   object sg: TStringGrid
     Left = 10
@@ -31,6 +30,8 @@ object shoppingForm: TshoppingForm
     DefaultColAlignment = taCenter
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect, goFixedRowDefAlign]
     TabOrder = 0
+    ExplicitWidth = 544
+    ExplicitHeight = 369
   end
   object shoppingPanel: TPanel
     Left = 564
@@ -41,6 +42,8 @@ object shoppingForm: TshoppingForm
     BevelOuter = bvNone
     Padding.Left = 5
     TabOrder = 1
+    ExplicitLeft = 554
+    ExplicitHeight = 369
     object Label1: TLabel
       Left = 14
       Top = 323
@@ -172,7 +175,6 @@ object shoppingForm: TshoppingForm
     end
   end
   object FDTable1: TFDTable
-    Active = True
     IndexFieldNames = 'id'
     Connection = mainForm.connection
     UpdateOptions.UpdateTableName = 'products'
