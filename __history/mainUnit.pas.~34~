@@ -124,11 +124,18 @@ begin
   if getCashStatus then
     begin
       // cash is open; close cash
-      current_timestamp := DateTimeToUnix(Now);
-      freeQuery.Close;
-      freeQuery.ExecSQL('update cash set end_time='+current_timestamp.ToString+' where end_time=0');
-      sg.Enabled := false;
-      cashOpenClose.Caption := 'Открыть кассу';
+      if isRunningMachine then
+        begin
+          showMessage('Сначало отключите все столы');
+        end
+      else
+        begin
+          current_timestamp := DateTimeToUnix(Now);
+          freeQuery.Close;
+          freeQuery.ExecSQL('update cash set end_time='+current_timestamp.ToString+' where end_time=0');
+          sg.Enabled := false;
+          cashOpenClose.Caption := 'Открыть кассу';
+        end;
     end
   else
     begin
@@ -223,7 +230,17 @@ begin
         end;
     end;
 
-  sg.Enabled := getCashStatus;
+  if getCashStatus then
+    begin
+      sg.Enabled := true;
+      cashOpenClose.Caption := 'Закрыть кассу';
+    end
+  else
+    begin
+      sg.Enabled := false;
+      cashOpenClose.Caption := 'Открыть кассу';
+    end;
+
 end;
 
 
@@ -251,7 +268,7 @@ end;
 function TmainForm.isRunningMachine: boolean;
 begin
   freeQuery.Close;
-  freeQuery.Open('select * from timer where status=0');
+  freeQuery.Open('select * from timer where status=1');
   result := freeQuery.RecordCount > 0;
 end;
 
@@ -679,12 +696,16 @@ begin
             TMsgDlgType.mtConfirmation,
             [TMsgDlgBtn.mbAll, TMsgDlgBtn.mbClose],
             0,
-            TMsgDlgBtn.mbAll,
+            TMsgDlgBtn.mbClose,
             buttonCaptions
           ) of
             12: begin // Print
-              print := TPrint.Create;
-              print.printCheck(sum, timePrice, st, et, items);
+              try
+                print := TPrint.Create;
+                print.printCheck(sum, timePrice, st, et, items);
+              except
+                continue;
+              end;
             end;
             8: begin  // Close
 

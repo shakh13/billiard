@@ -133,7 +133,7 @@ begin
           current_timestamp := DateTimeToUnix(Now);
           freeQuery.Close;
           freeQuery.ExecSQL('update cash set end_time='+current_timestamp.ToString+' where end_time=0');
-          sg.Enabled := false;
+          sg.visible := false;
           cashOpenClose.Caption := 'Открыть кассу';
         end;
     end
@@ -143,7 +143,7 @@ begin
       current_timestamp := DateTimeToUnix(Now);
       freeQuery.Close;
       freeQuery.ExecSQL('insert into cash (user_id, start_time) values ('+userId+', '+current_timestamp.ToString+')');
-      sg.Enabled := true;
+      sg.visible := true;
       cashOpenClose.Caption := 'Закрыть кассу';
     end;
 end;
@@ -232,12 +232,12 @@ begin
 
   if getCashStatus then
     begin
-      sg.Enabled := true;
+      sg.visible := true;
       cashOpenClose.Caption := 'Закрыть кассу';
     end
   else
     begin
-      sg.Enabled := false;
+      sg.visible := false;
       cashOpenClose.Caption := 'Открыть кассу';
     end;
 
