@@ -2,11 +2,11 @@ object loginForm: TloginForm
   Left = 0
   Top = 0
   ActiveControl = passwordEdit
-  AutoSize = True
   BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
-  ClientHeight = 201
-  ClientWidth = 201
+  ClientHeight = 210
+  ClientWidth = 191
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,9 +31,9 @@ object loginForm: TloginForm
   end
   object Label2: TLabel
     Left = 10
-    Top = 178
-    Width = 181
-    Height = 13
+    Top = 176
+    Width = 171
+    Height = 24
     Hint = #1064#1072#1093#1079#1086#1076' 906006960'
     Align = alBottom
     Alignment = taCenter
@@ -47,8 +47,8 @@ object loginForm: TloginForm
     OnClick = Label2Click
     OnMouseEnter = Label2MouseEnter
     OnMouseLeave = Label2MouseLeave
-    ExplicitTop = 418
-    ExplicitWidth = 40
+    ExplicitTop = 264
+    ExplicitWidth = 230
   end
   object passwordEdit: TLabeledEdit
     Left = 10

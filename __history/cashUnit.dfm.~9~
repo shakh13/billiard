@@ -1,0 +1,35 @@
+object cashForm: TcashForm
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = #1050#1072#1089#1089#1072
+  ClientHeight = 631
+  ClientWidth = 791
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Padding.Left = 15
+  Padding.Top = 15
+  Padding.Right = 15
+  Padding.Bottom = 15
+  Position = poMainFormCenter
+  OnShow = FormShow
+  TextHeight = 13
+  object cashListBox: TListBox
+    Left = 15
+    Top = 15
+    Width = 761
+    Height = 601
+    Align = alClient
+    ItemHeight = 13
+    TabOrder = 0
+    OnDrawItem = cashListBoxDrawItem
+    ExplicitLeft = 7
+    ExplicitTop = 31
+    ExplicitWidth = 121
+    ExplicitHeight = 97
+  end
+end

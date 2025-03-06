@@ -1,0 +1,21 @@
+object cashForm: TcashForm
+  Left = 0
+  Top = 0
+  AutoSize = True
+  BorderIcons = [biSystemMenu]
+  Caption = #1050#1072#1089#1089#1072
+  ClientHeight = 459
+  ClientWidth = 816
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Padding.Left = 15
+  Padding.Top = 15
+  Padding.Right = 15
+  Padding.Bottom = 15
+  Position = poMainFormCenter
+  TextHeight = 13
+end

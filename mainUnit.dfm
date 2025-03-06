@@ -27,7 +27,6 @@ object mainForm: TmainForm
     ButtonHeight = 48
     Caption = 'ToolBar1'
     TabOrder = 0
-    ExplicitWidth = 924
     object comportStatusImage: TImage
       Left = 0
       Top = 0
@@ -123,8 +122,17 @@ object mainForm: TmainForm
         3BF8BD83D2CC7B2E0BF3723FC3CC3B2F90F49DBF59CCC703F8A58E7F03DDEE2F
         F6ED228C2F0000000049454E44AE426082}
     end
-    object stopButton: TSpeedButton
+    object cashOpenClose: TSpeedButton
       Left = 48
+      Top = 0
+      Width = 113
+      Height = 48
+      Caption = #1054#1090#1082#1088#1099#1090#1100' '#1082#1072#1089#1089#1091
+      Transparent = False
+      OnClick = cashOpenCloseClick
+    end
+    object stopButton: TSpeedButton
+      Left = 161
       Top = 0
       Width = 48
       Height = 48
@@ -247,8 +255,6 @@ object mainForm: TmainForm
     OnContextPopup = sgContextPopup
     OnDblClick = sgDblClick
     OnMouseDown = sgMouseDown
-    ExplicitWidth = 622
-    ExplicitHeight = 448
     RowHeights = (
       24
       24
@@ -264,8 +270,6 @@ object mainForm: TmainForm
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitLeft = 622
-    ExplicitHeight = 448
     object historyList: TListBox
       AlignWithMargins = True
       Left = 5
@@ -285,7 +289,6 @@ object mainForm: TmainForm
       ItemHeight = 18
       ParentFont = False
       TabOrder = 0
-      ExplicitHeight = 448
     end
   end
   object StatusBar1: TStatusBar
@@ -295,8 +298,6 @@ object mainForm: TmainForm
     Height = 19
     Panels = <>
     SimplePanel = True
-    ExplicitTop = 496
-    ExplicitWidth = 924
   end
   object keyThread: TIdThreadComponent
     Active = False

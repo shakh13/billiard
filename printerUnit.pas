@@ -66,7 +66,6 @@ var
   y: integer;
   I: Integer;
 begin
-  //logo := self.loadImage('header_logo.jpg');
   conv := TBitmap.Create;
   Conv.LoadFromFile(ExtractFilePath(paramstr(0)) + '/images/header_logo.bmp');
   logo := tbitmap.Create;
@@ -74,10 +73,6 @@ begin
   logo.Canvas.StretchDraw(Rect(0, 0, 250, 250), conv);
   Printer.BeginDoc;
 
-//  Printer.Canvas.Font.Size := 24;
-//  Printer.Canvas.Font.Style := [fsBold];
-//
-//  Printer.Canvas.TextOut(20, 15, 'Billiard');
 
   Printer.Canvas.Draw(round(Printer.PageWidth / 2 - 125), 0, logo);
 
@@ -86,12 +81,9 @@ begin
 
   Printer.Canvas.TextOut(0, 250, '--------------------------------------------------------------------------------');
 
-
-
   Printer.Canvas.TextOut(0, 330, 'Начало: ' + startTime);
   Printer.Canvas.TextOut(0, 410, 'Время: ' + endTime);
   Printer.Canvas.TextOut(0, 490, 'Цена: ' + floattostr(time));
-
 
   y := 550;
   if items.Count > 0 then
@@ -107,7 +99,6 @@ begin
         end;
       y := y + 70;
     end;
-
 
   Printer.Canvas.Font.Style := [fsBold];
   Printer.Canvas.TextOut(0, y, '--------------------------------------------------------------------------------');

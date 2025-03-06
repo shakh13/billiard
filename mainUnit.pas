@@ -47,6 +47,7 @@ type
     ImageList1: TImageList;
     N10: TMenuItem;
     PrintDialog: TPrintDialog;
+    cashOpenClose: TSpeedButton;
     procedure ComPortException(Sender: TObject; TComException: TComExceptions;
       ComportMessage: string; WinError: Int64; WinMessage: string);
     procedure keyThreadRun(Sender: TIdThreadComponent);
@@ -70,6 +71,7 @@ type
     procedure N6Click(Sender: TObject);
     procedure ComPortError(Sender: TObject; Errors: TComErrors);
     procedure timerTimer(Sender: TObject);
+    procedure cashOpenCloseClick(Sender: TObject);
   private
     procedure turnLED(port: String; val: integer);
     procedure onPopupClick(Sender: TObject);
@@ -77,10 +79,12 @@ type
     userId: String;
     username: String;
     role: String;
-    cash: integer;
     machine_ids: TStringList;
     machine_ports: TStringList;
     machine_prices: TStringList;
+
+    function getCashStatus: boolean;
+    function isRunningMachine: boolean;
 
 
   end;
@@ -111,6 +115,37 @@ procedure TmainForm.cashMainMenuClick(Sender: TObject);
 begin
   if role = 'Админ' then
     cashForm.ShowModal;
+end;
+
+procedure TmainForm.cashOpenCloseClick(Sender: TObject);
+var
+  current_timestamp: integer;
+begin
+  if getCashStatus then
+    begin
+      // cash is open; close cash
+      if isRunningMachine then
+        begin
+          showMessage('Сначало отключите все столы');
+        end
+      else
+        begin
+          current_timestamp := DateTimeToUnix(Now);
+          freeQuery.Close;
+          freeQuery.ExecSQL('update cash set end_time='+current_timestamp.ToString+' where end_time=0');
+          sg.Enabled := false;
+          cashOpenClose.Caption := 'Открыть кассу';
+        end;
+    end
+  else
+    begin
+      // cash is closed; open cash
+      current_timestamp := DateTimeToUnix(Now);
+      freeQuery.Close;
+      freeQuery.ExecSQL('insert into cash (user_id, start_time) values ('+userId+', '+current_timestamp.ToString+')');
+      sg.Enabled := true;
+      cashOpenClose.Caption := 'Закрыть кассу';
+    end;
 end;
 
 procedure TmainForm.ComPortAfterClose(Sender: TObject);
@@ -164,7 +199,7 @@ begin
     connection.Connected := true;
     connection.Open;
   except
-    ShowMessage('Íåò ñîåäèíåíèé ñ áàçû äàííûõ!' + #13 + 'Ïðîãðàììà çàêðûâàåòñÿ.');
+    ShowMessage('Ошибка' + #13 + 'База данных не найдено');
     close();
   end;
 
@@ -185,7 +220,6 @@ begin
   if query.RecordCount > 0 then
     begin
       sg.FixedRows := 1;
-      sg.Enabled := true;
       for I := 1 to query.RecordCount do
         begin
           sg.Cells[0, i] := query.FieldByName('caption').AsString;
@@ -194,14 +228,19 @@ begin
           machine_prices.Add(query.FieldByName('price').AsString);
           query.Next;
         end;
+    end;
+
+  if getCashStatus then
+    begin
+      sg.Enabled := true;
+      cashOpenClose.Caption := 'Закрыть кассу';
     end
   else
     begin
       sg.Enabled := false;
+      cashOpenClose.Caption := 'Открыть кассу';
     end;
 
-
-  
 end;
 
 
@@ -217,6 +256,20 @@ begin
       sg.ColWidths[5] := round((sg.Width - 30) * 0.12);
       sg.ColWidths[6] := round((sg.Width - 30) * 0.13);
     end;
+end;
+
+function TmainForm.getCashStatus: boolean;
+begin
+  freeQuery.Close;
+  freeQuery.Open('select * from cash where end_time=0');
+  result := freeQuery.RecordCount > 0;
+end;
+
+function TmainForm.isRunningMachine: boolean;
+begin
+  freeQuery.Close;
+  freeQuery.Open('select * from timer where status=1');
+  result := freeQuery.RecordCount > 0;
 end;
 
 procedure TmainForm.N2Click(Sender: TObject);
@@ -604,11 +657,6 @@ begin
           timerQuery.ExecSQL('update timer set status=0 where id=' + timer_id);
           // end delete
 
-          // add to cash
-          cash := cash + sum;
-          timerQuery.Close;
-          timerQuery.ExecSQL('update settings set cash=' + cash.ToString);
-
           msg := machine_caption  + #13#10 + 'Время: ' + inttostr(sum) + #13#10;
 
           items := TStringlist.Create;
@@ -648,12 +696,16 @@ begin
             TMsgDlgType.mtConfirmation,
             [TMsgDlgBtn.mbAll, TMsgDlgBtn.mbClose],
             0,
-            TMsgDlgBtn.mbAll,
+            TMsgDlgBtn.mbClose,
             buttonCaptions
           ) of
             12: begin // Print
-              print := TPrint.Create;
-              print.printCheck(sum, timePrice, st, et, items);
+              try
+                print := TPrint.Create;
+                print.printCheck(sum, timePrice, st, et, items);
+              except
+                continue;
+              end;
             end;
             8: begin  // Close
 

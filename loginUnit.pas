@@ -39,7 +39,7 @@ implementation
 
 {$R *.dfm}
 
-uses mainUnit;
+uses mainUnit, cashUnit;
 
 procedure TloginForm.authButtonClick(Sender: TObject);
 begin
@@ -103,37 +103,24 @@ begin
       canTerminate := true;
     end;
 
+
+  mainForm.historyList.Clear;
   mainForm.query.Close;
-  mainForm.query.Open('select * from settings');
+  mainForm.query.Open('select machines.caption caption, machines.price price, timer.created_at created_at, timer.until_time until_time, timer.id as timer_id  from timer inner join machines on machines.id=timer.machine_id and timer.status=0 and timer.until_time<=' + IntToStr(DateTimeToUnix(Now)) + ' and timer.until_time > 0 order by timer.id desc');
   if mainForm.query.RecordCount > 0 then
     begin
-      mainForm.cash := mainForm.query.FieldByName('cash').AsInteger;
-
-      mainForm.historyList.Clear;
-      mainForm.query.Close;
-      mainForm.query.Open('select machines.caption caption, machines.price price, timer.created_at created_at, timer.until_time until_time  from timer inner join machines on machines.id=timer.machine_id and timer.status=0 and timer.until_time<=' + IntToStr(DateTimeToUnix(Now)) + ' and timer.until_time > 0 order by timer.id desc');
-      if mainForm.query.RecordCount > 0 then
+      for I := 1 to mainForm.query.RecordCount do
         begin
-          for I := 1 to mainForm.query.RecordCount do
-            begin
-              s := mainForm.query.FieldByName('created_at').AsInteger;
-              f := mainForm.query.FieldByName('until_time').AsInteger;
-              p := mainForm.query.FieldByName('price').AsInteger;
+          s := mainForm.query.FieldByName('created_at').AsInteger;
+          f := mainForm.query.FieldByName('until_time').AsInteger;
+          p := mainForm.query.FieldByName('price').AsInteger;
 
-              mainForm.historyList.Items.Add(mainForm.query.FieldByName('caption').AsString + ': '
-                + inttostr(round(abs(f - s) / 3600 * p)) + ' - '
-                + DateTimeToStr(UnixToDateTime(s)));
+          mainForm.historyList.Items.Add(mainForm.query.FieldByName('caption').AsString + ': '
+            + inttostr(round(abs(f - s) / 3600 * p) + cashForm.productsPriceByTimerId(mainForm.query.FieldByName('timer_id').AsInteger)) + ' - '
+            + DateTimeToStr(UnixToDateTime(s)));
 
-              mainForm.query.Next;
-            end;
+          mainForm.query.Next;
         end;
-
-    end
-  else
-    begin
-      showMessage('Обратите к создателю!' + #13 + 'Шахзод Саидмуродов.' + #13 + '+998 90 906006960');
-      loggedIn := true;
-      canTerminate := true;
     end;
 end;
 

@@ -1,0 +1,87 @@
+object loginForm: TloginForm
+  Left = 0
+  Top = 0
+  ActiveControl = passwordEdit
+  AutoSize = True
+  BorderIcons = [biSystemMenu]
+  Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
+  ClientHeight = 200
+  ClientWidth = 198
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Padding.Left = 10
+  Padding.Top = 10
+  Padding.Right = 10
+  Padding.Bottom = 10
+  Position = poScreenCenter
+  ShowHint = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 10
+    Top = 10
+    Width = 30
+    Height = 13
+    Caption = #1051#1086#1075#1080#1085
+  end
+  object Label2: TLabel
+    Left = 10
+    Top = 171
+    Width = 178
+    Height = 19
+    Hint = #1064#1072#1093#1079#1086#1076' 906006960'
+    Align = alBottom
+    Alignment = taCenter
+    Caption = #1055#1086#1084#1086#1097#1100
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHighlight
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    OnClick = Label2Click
+    OnMouseEnter = Label2MouseEnter
+    OnMouseLeave = Label2MouseLeave
+    ExplicitLeft = 13
+    ExplicitWidth = 175
+  end
+  object passwordEdit: TLabeledEdit
+    Left = 10
+    Top = 82
+    Width = 175
+    Height = 21
+    BiDiMode = bdLeftToRight
+    EditLabel.Width = 37
+    EditLabel.Height = 13
+    EditLabel.BiDiMode = bdLeftToRight
+    EditLabel.Caption = #1055#1072#1088#1086#1083#1100
+    EditLabel.ParentBiDiMode = False
+    ParentBiDiMode = False
+    PasswordChar = '*'
+    TabOrder = 1
+    Text = ''
+    OnKeyPress = passwordEditKeyPress
+  end
+  object authButton: TButton
+    Left = 10
+    Top = 117
+    Width = 175
+    Height = 40
+    Caption = #1042#1086#1081#1090#1080
+    TabOrder = 2
+    OnClick = authButtonClick
+  end
+  object usernameComboBox: TComboBox
+    Left = 10
+    Top = 25
+    Width = 175
+    Height = 21
+    Style = csDropDownList
+    TabOrder = 0
+  end
+end
